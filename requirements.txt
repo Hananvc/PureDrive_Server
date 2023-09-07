@@ -4,7 +4,7 @@ django-celery-beat
 django-celery-results
 django-cors-headers
 django-environ
-django-timezone-fie
+django-timezone-field
 djangorestframework
 djangorestframework-simplejwt
 Pillow

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* Inline CSS styles */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+  }
+  .header {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  .content {
+    padding: 20px;
+  }
+  .footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+    <div class="container">
+      <div class="header">
+        <h1>New Test Ride Booking Notification</h1>
+      </div>
+      <div class="content">
+        <p>Dear {{ booking.dealer }},</p>
+        <p>A new test ride booking has been made for {{ booking.brand }} {{ booking.model_name }}:</p>
+        <p>Customer Name: {{ booking.customer_name }}</p>
+        <p>Customer Email: {{ booking.customer_email }}</p>
+        <p>Customer Phone: {{ booking.customer_phone }}</p>
+        <p>Date: {{ booking.date }}</p>
+        <p>Time: {{ booking.time }}</p>
+        <p>Thank you for your attention.</p>
+        <p>Best regards,</p>
+        <p>PureDrive</p>
+      </div>
+      <div class="footer">
+        <p>&copy; {{ year }} PureDrive. All rights reserved.</p>
+      </div>
+    </div>
+</body>
+</html>

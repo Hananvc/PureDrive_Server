@@ -3,6 +3,7 @@ from django.db.utils import IntegrityError  # Import IntegrityError
 from .models import News
 import requests
 import logging
+from django.conf import settings
 
 
 logger = logging.getLogger(__name__)
@@ -11,8 +12,7 @@ logger = logging.getLogger(__name__)
 def fetch_and_store_news():
     try:
         logger.info("Entered the task")
-
-        api_key = 'ca789e9ab879409488626410ac1186ad'
+        api_key = settings.API_KEY
         api_url = f'https://newsapi.org/v2/everything?q=electric%20vehicle&apiKey={api_key}'
         response = requests.get(api_url)
         news_data = response.json().get('articles', [])

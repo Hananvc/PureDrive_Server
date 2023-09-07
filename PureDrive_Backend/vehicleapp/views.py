@@ -114,13 +114,14 @@ class ImageView(viewsets.ModelViewSet):
 
 import requests
 from rest_framework import status
+from django.conf import settings
 
 
 class FetchAndStoreInitialNews(APIView):
     def post(self, request, format=None):
         try:
             # Replace 'YOUR_API_KEY' with your actual NewsAPI API key
-            api_key = 'ca789e9ab879409488626410ac1186ad'
+            api_key = settings.API_KEY
             api_url = f'https://newsapi.org/v2/everything?q=electric%20vehicle&apiKey={api_key}'
             response = requests.get(api_url)
             print(response)

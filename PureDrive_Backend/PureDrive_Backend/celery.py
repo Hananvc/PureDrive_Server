@@ -18,7 +18,7 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.conf.beat_schedule= {
     'send-mail-every-day':{
         'task':'vehicleapp.tasks.fetch_and_store_news',
-        'schedule': crontab(hour=00,minute=00),
+        'schedule': crontab(hour=12,minute=42),
 
     }
 }

@@ -8,7 +8,7 @@ from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from .models import testride
-
+from django.conf import settings
 
 @receiver(post_save, sender=Vehicle)
 def send_notification_email(sender, instance, created, **kwargs):
@@ -18,7 +18,7 @@ def send_notification_email(sender, instance, created, **kwargs):
         brand = instance.brand
         dealers = Dealer.objects.filter(brand=brand)
         for dealer in dealers:
-            vehicle_detail_url = f"http://localhost:5173/vehicle/{instance.pk}/"
+            vehicle_detail_url = f"{settings.CLIENT_URL}/vehicle/{instance.pk}/"
             subject = 'New Vehicle Added'
             message = f'A new vehicle of your brand has been added to the database. You can view it here: {vehicle_detail_url}'
             from_email = settings.EMAIL_HOST_USER

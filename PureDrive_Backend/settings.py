@@ -34,7 +34,7 @@ SECRET_KEY=env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL='userapp.User'
 
@@ -221,6 +221,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 CELERY_IMPORTS = ('vehicleapp.tasks',)
+CLIENT_URL = env('CLIENT_URL')
 
 # PureDrive_Backend/settings.py
 

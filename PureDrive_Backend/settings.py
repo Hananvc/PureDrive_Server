@@ -20,7 +20,6 @@ environ.Env.read_env()
 
 
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -61,6 +60,8 @@ INSTALLED_APPS = [
     'django_celery_results',
     'django_celery_beat',
     'environ',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -73,6 +74,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env('CLOUD_NAME'),
+    'API_KEY': env('API_KEY'),
+    'API_SECRET': env('API_SECRET'),
+}
 
 ROOT_URLCONF = 'PureDrive_Backend.urls'
 
@@ -213,6 +220,7 @@ API_KEY = env('API_KEY')
 
 
 MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # CELERY_RESULT_BACKEND = 'django-db'

@@ -21,3 +21,5 @@ urllib3
 vine
 wcwidth
 gunicorn
+cloudinary
+django-cloudinary-storage
